@@ -21,7 +21,7 @@ jobs:
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.7.0
     with:
       exercise-title: "Colaborar no GitHub com o GitHub Desktop"
-      intro-message: "Aprenda o fluxo de colaboração do dia a dia no GitHub usando o GitHub Desktop: clonar um repositório, trabalhar com branches, abrir e revisar pull requests, criar issues e resolver conflitos de merge."
+      intro-message: "Aprenda o fluxo de colaboração do dia a dia no GitHub usando o GitHub Desktop, clonar um repositório, trabalhar com branches, abrir e revisar pull requests, criar issues e resolver conflitos de merge."
 
   post_next_step_content:
     name: Post next step content
