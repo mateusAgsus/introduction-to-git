@@ -13,7 +13,6 @@ permissions:
 env:
   STEP_7_FILE: ".github/steps/7-step.md"
   CONFLICT_BRANCH: "resolve-this-conflict"
-  CONFLICT_BASE: "conflict-base"
 
 concurrency:
   group: "step-6"
@@ -130,11 +129,11 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.3
 
-      # Prepare the next step: create two branches that change the SAME line in
-      # different ways. The learner opens a pull request between them in Step 7,
-      # which will conflict. We only create branches here (no PR), because the
+      # Prepare the next step: create a branch that changes the SAME line that we
+      # also change on main, so the learner's pull request into main conflicts.
+      # We only create the branch and update main here (no PR), because the
       # GITHUB_TOKEN is not allowed to create pull requests.
-      - name: Seed branches that will conflict in the next step
+      - name: Seed a branch that will conflict with main
         run: |
           set -e
           FILE="src/index.html"
@@ -151,20 +150,17 @@ jobs:
           git checkout main
           git pull origin main
 
-          # Base branch with one version of the subtitle line.
-          # We use a dedicated base branch (not main) so this works even when
-          # the main branch is protected against direct pushes.
-          git checkout -b "$CONFLICT_BASE"
-          sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Clear the errors to keep the stack stable! 🧱</div>#' "$FILE"
-          git commit -am "Define o subtítulo na branch base"
-          git push origin "$CONFLICT_BASE"
-
-          # Conflict branch (from main) with a competing version of the SAME line.
-          git checkout main
+          # Conflict branch (from main) with one version of the subtitle line.
           git checkout -b "$CONFLICT_BRANCH"
           sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Match the bugs before they pile up! 🐛</div>#' "$FILE"
           git commit -am "Propõe um novo texto de subtítulo"
           git push origin "$CONFLICT_BRANCH"
+
+          # A competing change to the SAME line on main, so the pull request conflicts.
+          git checkout main
+          sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Clear the errors to keep the stack stable! 🧱</div>#' "$FILE"
+          git commit -am "Atualiza o subtítulo na main"
+          git push origin main
 
       - name: Create comment - step finished
         uses: GrantBirki/comment@v2.1.1

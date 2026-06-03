@@ -3,7 +3,7 @@ name: Step 7 # Resolving a Merge Conflict
 on:
   pull_request:
     branches:
-      - conflict-base
+      - main
     types:
       - closed
 

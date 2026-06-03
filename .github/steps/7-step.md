@@ -2,15 +2,15 @@
 
 Às vezes duas pessoas alteram a **mesma linha** de formas diferentes. O Git não consegue decidir qual versão está correta, então ele pede que um humano escolha. Isso é um **conflito de merge**, e faz parte normal da colaboração. 😌
 
-Para você praticar de forma realista, **criamos duas branches para você**: a `conflict-base` e a `resolve-this-conflict`. As duas alteram a **mesma linha** (o subtítulo do jogo) de formas diferentes. Quando você abrir um pull request entre elas, o GitHub vai apontar o conflito para você resolver.
+Para você praticar de forma realista, **criamos a branch `resolve-this-conflict`** que altera o subtítulo do jogo. Enquanto isso, um colega alterou **a mesma linha** na `main`. Quando você abrir um pull request dessa branch para a `main`, o GitHub vai apontar o conflito para você resolver.
 
 ### 📖 Teoria: Anatomia de um conflito
 
 Quando ocorre um conflito, o GitHub (e o Git) marcam o trecho em disputa com três marcadores:
 
 ```diff
-<<<<<<< conflict-base
-A versão que está atualmente na branch base
+<<<<<<< main
+A versão que está atualmente na main
 =======
 A versão da branch que está sendo mesclada
 >>>>>>> resolve-this-conflict
@@ -20,7 +20,7 @@ Para resolver, você escolhe o conteúdo final (manter um lado, o outro ou combi
 
 ### ⌨️ Atividade 1: Abra o pull request e resolva o conflito (recomendado)
 
-1. Abra o formulário de novo pull request já preenchido pelo link abaixo (base `conflict-base`, comparando com `resolve-this-conflict`):
+1. Abra o formulário de novo pull request já preenchido pelo link abaixo (base `main`, comparando com `resolve-this-conflict`):
 
    [Abrir o pull request →](../../colaborar-com-github-desktop/compare/conflict-base...resolve-this-conflict?expand=1)
 
@@ -45,16 +45,16 @@ Para resolver, você escolhe o conteúdo final (manter um lado, o outro ou combi
 Prefere resolver localmente? Também dá (depois ainda será preciso abrir e mesclar o pull request no GitHub.com):
 
 1. No GitHub Desktop, clique em **Fetch origin** e mude para a branch `resolve-this-conflict`.
-1. Escolha **Branch → Merge into current branch...** e selecione **`conflict-base`**. O Desktop vai apontar o conflito.
+1. Escolha **Branch → Merge into current branch...** e selecione **`main`**. O Desktop vai apontar o conflito.
 1. Clique em **Open in your editor**, corrija `src/index.html` (remova os marcadores, mantenha uma linha) e salve.
 1. De volta ao Desktop, commite o merge e clique em **Push origin**.
-1. Por fim, abra o pull request (`resolve-this-conflict` → `conflict-base`) no GitHub.com e faça o **Merge**.
+1. Por fim, abra o pull request (`resolve-this-conflict` → `main`) no GitHub.com e faça o **Merge**.
 
 <details>
 <summary>Com dificuldades? 🤷</summary><br/>
 
-- Confirme que o pull request vai de **`resolve-this-conflict`** (compare) para **`conflict-base`** (base).
+- Confirme que o pull request vai de **`resolve-this-conflict`** (compare) para **`main`** (base).
 - Confirme que você removeu **todos** os marcadores (`<<<<<<<`, `=======`, `>>>>>>>`). O arquivo deve conter apenas uma linha de `subtitle`.
-- O passo é concluído quando esse pull request é **mesclado** na `conflict-base`.
+- O passo é concluído quando esse pull request é **mesclado** na `main`.
 
 </details>
