@@ -42,23 +42,23 @@ Enquanto desenvolvia o projeto, você notou que a funcionalidade implementada ne
 3. Dê um **título** claro e específico à sua issue.
 
    ```txt
-   Bug: o recorde é perdido ao recarregar a página
+   Bug: Erro no login, campo nome não funciona.
    ```
 
 4. Adicione uma **descrição** com alguns detalhes úteis.
 
    ```md
    ## O que acontece
-   O recorde volta a 0 toda vez que a página é recarregada.
+   O campo nome não aceita entradas.
 
    ## Comportamento esperado
-   O recorde deveria persistir entre as sessões.
+   O campo nome deveria aceitar inputs de usuários.
 
    ## Observações
-   Provavelmente relacionado a como lemos e gravamos o valor no localStorage.
+   Provavelmente relacionado a como foi implementado o campo.
    ```
 
-5. Clique em **Submit new issue** para criá-la.
+5. Clique em **Create** para criá-la.
 
 6. Com sua issue criada, a Mona já estará verificando seu trabalho. Dê um instante a ela e fique de olho nos comentários. Você verá a resposta com o progresso e os próximos passos.
 
