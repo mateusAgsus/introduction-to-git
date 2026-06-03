@@ -5,7 +5,7 @@ _Use Git version control to work on a game using command line (CLI) and VS Code.
 ## Welcome
 
 - **Who is this for**: Beginner developers who want to learn Git version control
-- **What you'll learn**: Fundamental Git concepts including commits, branches, history, and collaboration basics
+- **What you'll learn**: Fundamental Git concepts including commits, branches, history, issues, merge conflicts, and collaboration basics
 - **What you'll build**: You'll create a Git repository, add a sample code, then develop some simple features.
 - **Prerequisites**:
 
@@ -13,7 +13,7 @@ _Use Git version control to work on a game using command line (CLI) and VS Code.
   - Recommended: Basic familiarity with Command Line Interfaces (CLI)
   - Recommended: Basic familiarity with Visual Studio Code.
 
-- **How long**: This exercise takes less than 60 minutes to complete.
+- **How long**: This exercise takes about 60 minutes to complete.
 
 In this exercise, you will:
 
@@ -22,6 +22,8 @@ In this exercise, you will:
 1. Create your first repository and make commits.
 1. View project history and compare file changes.
 1. Work with branches to experiment safely.
+1. Track work by creating issues.
+1. Resolve a merge conflict between branches.
 1. Learn about Git collaboration concepts.
 
 ### How to start this exercise

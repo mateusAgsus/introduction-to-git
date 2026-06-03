@@ -12,6 +12,8 @@ Here's a recap of your accomplishments:
 - Created repositories, staged changes, and made commits
 - Explored project history and compared file changes
 - Worked with branches for safe experimentation
+- Tracked work by creating issues
+- Resolved a merge conflict between branches
 - Learned collaboration concepts and Git hosting services
 
 ### What's next?

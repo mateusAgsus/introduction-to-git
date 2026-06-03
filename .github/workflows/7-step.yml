@@ -1,9 +1,9 @@
-name: Step 6 # Tracking Work with Issues
+name: Step 7 # Resolving a Merge Conflict
 
 on:
-  issues:
+  repository_dispatch:
     types:
-      - opened
+      - post-commit
 
 permissions:
   contents: read
@@ -11,10 +11,10 @@ permissions:
   issues: write
 
 env:
-  STEP_7_FILE: ".github/steps/7-step.md"
+  STEP_8_FILE: ".github/steps/8-step.md"
 
 concurrency:
-  group: "step-6"
+  group: "step-7"
   cancel-in-progress: true
 
 jobs:
@@ -29,12 +29,6 @@ jobs:
     env:
       ISSUE_REPOSITORY: ${{ github.repository }}
       ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
-
-    # Only react to a brand new issue created by the learner,
-    # never the exercise tracking issue or issues opened by the bot.
-    if: |
-      github.event.issue.number != needs.find_exercise.outputs.issue-number
-      && github.event.issue.user.login != 'github-actions[bot]'
 
     steps:
       - name: Checkout
@@ -66,25 +60,28 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check for a descriptive issue
-        id: check-for-descriptive-issue
+      - name: Check for merge conflict resolution commit
+        id: check-for-conflict-resolution
         continue-on-error: true
         uses: actions/github-script@v6
         env:
-          issue_title: ${{ github.event.issue.title }}
-          issue_body: ${{ github.event.issue.body }}
+          commit_messages: ${{ toJson(github.event.client_payload.branch_commit_messages) }}
+          keyword: "conflict"
         with:
           script: |
-            // A good issue needs both a title and a description.
-            const title = (process.env.issue_title || "").trim();
-            const body = (process.env.issue_body || "").trim();
+            // Load commit messages and keyword
+            const commitMessages = JSON.parse(process.env.commit_messages || "[]");
+            let keyword = process.env.keyword || "";
+            keyword = keyword.toLowerCase();
 
-            if (title.length === 0) {
-              throw new Error("The issue has no title.");
+            // Check commit messages for keyword
+            for (const commit of commitMessages) {
+              const message = commit.message.toLowerCase();
+              if (message.includes(keyword)) {
+                return;
+              }
             }
-            if (body.length === 0) {
-              throw new Error("The issue has no description.");
-            }
+            throw new Error(`No commit message contains the keyword '${keyword}'`);
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -95,10 +92,10 @@ jobs:
           edit-mode: replace
           file: exercise-toolkit/markdown-templates/step-feedback/step-results-table.md
           vars: |
-            step_number: 6
+            step_number: 7
             results_table:
-              - description: "Created a new issue with a title and description"
-                passed: ${{ steps.check-for-descriptive-issue.outcome == 'success' }}
+              - description: "Resolved a merge conflict and committed the result"
+                passed: ${{ steps.check-for-conflict-resolution.outcome == 'success' }}
 
       # END: Check practical exercise
 
@@ -132,14 +129,14 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
           vars: |
-            next_step_number: 7
+            next_step_number: 8
 
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1
         with:
           repository: ${{ env.ISSUE_REPOSITORY }}
           issue-number: ${{ env.ISSUE_NUMBER }}
-          file: ${{ env.STEP_7_FILE }}
+          file: ${{ env.STEP_8_FILE }}
 
       - name: Create comment - watching for progress
         uses: GrantBirki/comment@v2.1.1
@@ -151,6 +148,6 @@ jobs:
       - name: Disable current workflow and enable next one
         run: |
           gh workflow disable "${{github.workflow}}"
-          gh workflow enable "Step 7"
+          gh workflow enable "Step 8"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

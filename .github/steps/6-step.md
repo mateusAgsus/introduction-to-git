@@ -1,33 +1,92 @@
-## Step 6: Introduction to Collaboration
+## Step 6: Tracking Work with Issues
 
-Nice work! You've mastered local Git operations and our game is now safe to experiment developing new features! 🎉
+Our game is coming along nicely! But as a project grows, you need a way to keep track of bugs, ideas, and tasks, so nothing gets forgotten. This is especially important when collaborating with others.
 
-But.. the really fun development happens in teams, not alone. That is another exercise, but let's start exploring the topic.
+This is where **issues** come in. 🗒️
 
-### 📖 Theory: Git Collaboration Concepts
+### 📖 Theory: What are Issues?
 
-Since branches provide powerful parallelism to work on different features independently, a natural extension is to enable multiple people to work in parallel.
+An **issue** is a way to track work directly inside your repository on GitHub. Think of it as a to-do item, bug report, or discussion thread tied to your project.
 
-At the beginning, we mentioned Git is a "distributed" version control system, this means it can share changes with other copies of the same repository!
+Issues are great for:
 
-### What does collaboration look like?
+- **Reporting bugs**: Describe something that isn't working as expected.
+- **Planning features**: Capture an idea before you start coding.
+- **Organizing work**: Break a big goal into smaller, trackable tasks.
+- **Collaborating**: Discuss the work with teammates in one place.
 
-Here is a typical workflow:
+To keep things organized, an issue can include:
 
-1. Copy a repository to your local machine (called **cloning**).
-1. Create branches and develop new features.
-1. Publish your changes to a remote repository, somewhere others can also access (called **pushing**).
-1. Other developers decide if they like your changes. If so, they merge them into their version of the project (called **pulling**).
-1. Additionally, you might proactively ask another developer to integrate your changes into their copy (called a **pull request**).
+- **Title**: A short, clear summary of the work.
+- **Description**: The details, context, and steps to reproduce (for bugs).
+- **Labels**: Tags like `bug`, `enhancement`, or `documentation`.
+- **Assignees**: The people responsible for the work.
+- **Milestones**: A group of issues working toward a larger goal.
 
-### ⌨️ Activity: Quick Review
+> [!TIP]
+> A good issue title is specific. "Bug" is hard to act on, but "High score resets when the page is refreshed" tells everyone exactly what to look at.
 
-Answer one quick question for Mona, and she will share the final review! 🎉
+### ⌨️ Activity 1: Create an issue (using the web browser)
 
-**What is your favorite feature of Git?**
+While building the game, you noticed the high score doesn't always behave as expected. Let's track that with an issue!
 
-- [ ] It's free and open source. 😍
-- [ ] I don't need internet to use it. 🛜
-- [ ] I can use it with any operating system. 🍎🪟🐧
-- [ ] The detailed history (if I write good messages). ✨
-- [ ] That I might never write `final_really.zip` ever again! 😎
+> [!IMPORTANT]
+> Create this issue on **your copy** of the exercise repository, not on the tracking issue Mona is using for this exercise.
+
+1. In a new browser tab, open the **Issues** tab of your repository.
+
+   [Open the Issues tab →](../../issues)
+
+1. Click the green **New issue** button.
+
+1. Give your issue a clear, specific **title**.
+
+   ```txt
+   Bug: high score is lost after refreshing the page
+   ```
+
+1. Add a **description** with some helpful details.
+
+   ```md
+   ## What happens
+   The high score resets to 0 every time the page is reloaded.
+
+   ## Expected behavior
+   The high score should persist between sessions.
+
+   ## Notes
+   Likely related to how we read and write the value in localStorage.
+   ```
+
+1. Click **Submit new issue** to create it.
+
+1. With your issue created, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next steps.
+
+### ⌨️ Activity 2: Create an issue (using the CLI)
+
+You can also create issues without leaving your editor, using the [GitHub CLI](https://cli.github.com/) (`gh`) in the integrated terminal.
+
+1. In the terminal, create an issue with a single command.
+
+   ```bash
+   gh issue create --title "Add a restart button" --body "Players should be able to restart the game without reloading the page."
+   ```
+
+   > 🪧 **Note**: The first time you use `gh`, it may ask you to authenticate. Follow the on-screen prompts.
+
+1. List the issues in your repository to confirm it was created.
+
+   ```bash
+   gh issue list
+   ```
+
+> [!TIP]
+> You can close an issue from the CLI too, once the work is done: `gh issue close <number>`.
+
+<details>
+<summary>Having trouble? 🤷</summary><br/>
+
+- Make sure you are creating the issue on **your** copy of the repository, not the original `skills/introduction-to-git`.
+- An issue needs both a **title** and a **description** for Mona to mark this step complete.
+
+</details>
