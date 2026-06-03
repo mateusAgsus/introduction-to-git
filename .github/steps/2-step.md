@@ -26,7 +26,7 @@ O fluxo típico é:
    add-project-files
    ```
 
-   Confirme que ela é baseada em `main` e clique em **Create Branch** e logo após ao lado de current branch clique em **Publish Branch**.
+   Confirme que ela é baseada em `main` e clique em **Create Branch**.
 
 3. Adicione um arquivo de projeto. Clique em **Open the repository in your external editor** (ou abra a pasta do repositório) e crie um novo arquivo chamado `PROJECT.md` com algum conteúdo, por exemplo:
 
@@ -45,8 +45,8 @@ O fluxo típico é:
    ```txt
    Add project description file
    ```
-   > [!NOTE]
-   > Não se procupe com a nossa política de commits por agora, vamos ter tempo para nos ambientarmos com isso depois.
+> [!NOTE]
+> Não se procupe com a nossa política de commits por agora, vamos ter tempo para nos ambientarmos com isso depois.
    
    Em seguida, clique em **Commit to add-project-files**.
 
