@@ -45,12 +45,14 @@ O fluxo típico é:
    ```txt
    Add project description file
    ```
-
+   > [!NOTE]
+   > Não se procupe com a nossa política de commits por agora, vamos ter tempo para nos ambientarmos com isso depois.
+   
    Em seguida, clique em **Commit to add-project-files**.
 
 1. Clique em **Publish branch** (canto superior direito) para enviar sua branch e o commit para o GitHub.
 
-1. Com sua branch enviada, a Mona vai verificar seu trabalho. Dê um instante a ela e fique de olho nos comentários. 👀
+2. Com sua branch enviada, a Mona vai verificar seu trabalho. Dê um instante a ela e fique de olho nos comentários. 👀
 
 <details>
 <summary>Com dificuldades? 🤷</summary><br/>
