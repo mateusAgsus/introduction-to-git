@@ -28,14 +28,14 @@ Para manter tudo organizado, uma issue pode incluir:
 
 ### ⌨️ Atividade: Crie uma issue
 
-Enquanto desenvolvia o jogo, você notou que o recorde nem sempre se comporta como esperado. Vamos registrar isso com uma issue!
+Enquanto desenvolvia o projeto, você notou que a funcionalidade implementada nem sempre se comporta como esperado. Vamos registrar isso com uma issue!
 
 > [!IMPORTANT]
 > Crie esta issue na **sua cópia** do repositório do exercício, e não na issue de acompanhamento que a Mona usa neste exercício.
 
 1. Em uma nova aba do navegador, abra a aba **Issues** do seu repositório.
 
-   [Abrir a aba Issues →](../../issues)
+   [Abrir a aba Issues →](../../colaborar-com-github-desktop/issues)
 
 2. Clique no botão verde **New issue**.
 
