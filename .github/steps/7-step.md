@@ -2,7 +2,7 @@
 
 Às vezes duas pessoas alteram a **mesma linha** de formas diferentes. O Git não consegue decidir qual versão está correta, então ele pede que um humano escolha. Isso é um **conflito de merge**, e faz parte normal da colaboração. 😌
 
-Para você praticar de forma realista, **já abrimos um pull request para você** que tem um conflito: um colega alterou o subtítulo do jogo na branch base, enquanto outra branch (`resolve-this-conflict`) alterou a mesma linha.
+Para você praticar de forma realista, **criamos duas branches para você**: a `conflict-base` e a `resolve-this-conflict`. As duas alteram a **mesma linha** (o subtítulo do jogo) de formas diferentes. Quando você abrir um pull request entre elas, o GitHub vai apontar o conflito para você resolver.
 
 ### 📖 Teoria: Anatomia de um conflito
 
@@ -18,40 +18,43 @@ A versão da branch que está sendo mesclada
 
 Para resolver, você escolhe o conteúdo final (manter um lado, o outro ou combinar) e **remove os três marcadores**.
 
-### ⌨️ Atividade 1: Resolva o conflito no GitHub.com (recomendado)
+### ⌨️ Atividade 1: Abra o pull request e resolva o conflito (recomendado)
 
-1. Abra a aba **Pull requests** do seu repositório e abra o **"Resolva o conflito de merge do subtítulo"**.
+1. Abra o formulário de novo pull request já preenchido pelo link abaixo (base `conflict-base`, comparando com `resolve-this-conflict`):
 
-   [Abrir a aba Pull requests →](../../pulls)
+   [Abrir o pull request →](../../compare/conflict-base...resolve-this-conflict?expand=1)
 
-2. O GitHub mostra *"This branch has conflicts that must be resolved."* Clique no botão **Resolve conflicts**.
+1. Dê um título, por exemplo `Resolver conflito do subtítulo`, e clique em **Create pull request**.
 
-3. No editor da web, encontre o conflito em `src/index.html`. Apague os marcadores (`<<<<<<<`, `=======`, `>>>>>>>`) e mantenha uma **única** linha de subtítulo, por exemplo:
+1. O GitHub mostra *"This branch has conflicts that must be resolved."* Clique no botão **Resolve conflicts**.
+
+1. No editor da web, encontre o conflito em `src/index.html`. Apague os marcadores (`<<<<<<<`, `=======`, `>>>>>>>`) e mantenha uma **única** linha de subtítulo, por exemplo:
 
    ```html
    <div class="subtitle">Clear the errors to keep the stack stable! 🧱</div>
    ```
 
-4. Clique em **Mark as resolved** e depois em **Commit merge**.
+1. Clique em **Mark as resolved** e depois em **Commit merge**.
 
-5. De volta ao pull request, clique em **Merge pull request** e depois em **Confirm merge**.
+1. De volta ao pull request, clique em **Merge pull request** e depois em **Confirm merge**.
 
-6. Com o conflito resolvido e mesclado, a Mona vai verificar seu trabalho e compartilhar o passo final. 🎉
+1. Com o conflito resolvido e mesclado, a Mona vai verificar seu trabalho e compartilhar o passo final. 🎉
 
 ### ⌨️ Atividade 2 (alternativa): Resolva no GitHub Desktop
 
-Prefere resolver localmente? Também dá:
+Prefere resolver localmente? Também dá (depois ainda será preciso abrir e mesclar o pull request no GitHub.com):
 
 1. No GitHub Desktop, clique em **Fetch origin** e mude para a branch `resolve-this-conflict`.
-2. Escolha **Branch → Merge into current branch...** e selecione **`conflict-base`**. O Desktop vai apontar o conflito.
-3. Clique em **Open in your editor**, corrija `src/index.html` (remova os marcadores, mantenha uma linha) e salve.
-4. De volta ao Desktop, commite o merge e clique em **Push origin**.
-5. Por fim, abra o pull request no GitHub.com e faça o **Merge**.
+1. Escolha **Branch → Merge into current branch...** e selecione **`conflict-base`**. O Desktop vai apontar o conflito.
+1. Clique em **Open in your editor**, corrija `src/index.html` (remova os marcadores, mantenha uma linha) e salve.
+1. De volta ao Desktop, commite o merge e clique em **Push origin**.
+1. Por fim, abra o pull request (`resolve-this-conflict` → `conflict-base`) no GitHub.com e faça o **Merge**.
 
 <details>
 <summary>Com dificuldades? 🤷</summary><br/>
 
+- Confirme que o pull request vai de **`resolve-this-conflict`** (compare) para **`conflict-base`** (base).
 - Confirme que você removeu **todos** os marcadores (`<<<<<<<`, `=======`, `>>>>>>>`). O arquivo deve conter apenas uma linha de `subtitle`.
-- O passo é concluído quando o pull request **"Resolva o conflito de merge do subtítulo"** é **mesclado** na `conflict-base`.
+- O passo é concluído quando esse pull request é **mesclado** na `conflict-base`.
 
 </details>

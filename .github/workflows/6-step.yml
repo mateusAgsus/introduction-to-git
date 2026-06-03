@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
   actions: write
   issues: write
 
@@ -131,11 +130,11 @@ jobs:
           path: exercise-toolkit
           ref: v0.7.3
 
-      # Prepare the next step: create a branch that intentionally conflicts
-      # with main and open a pull request for the learner to resolve.
-      - name: Seed a merge conflict for the next step
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Prepare the next step: create two branches that change the SAME line in
+      # different ways. The learner opens a pull request between them in Step 7,
+      # which will conflict. We only create branches here (no PR), because the
+      # GITHUB_TOKEN is not allowed to create pull requests.
+      - name: Seed branches that will conflict in the next step
         run: |
           set -e
           FILE="src/index.html"
@@ -166,13 +165,6 @@ jobs:
           sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Match the bugs before they pile up! 🐛</div>#' "$FILE"
           git commit -am "Propõe um novo texto de subtítulo"
           git push origin "$CONFLICT_BRANCH"
-
-          # Open the pull request the learner will resolve in Step 7.
-          gh pr create \
-            --base "$CONFLICT_BASE" \
-            --head "$CONFLICT_BRANCH" \
-            --title "Resolva o conflito de merge do subtítulo" \
-            --body "Um colega alterou o subtítulo do jogo na branch base enquanto esta branch alterou a mesma linha. Resolva o conflito e mescle este pull request para concluir o passo."
 
       - name: Create comment - step finished
         uses: GrantBirki/comment@v2.1.1
