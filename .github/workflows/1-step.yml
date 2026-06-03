@@ -1,9 +1,9 @@
 name: Step 1
 
 on:
-  repository_dispatch:
+  issue_comment:
     types:
-      - git-config-changed
+      - edited
 
 permissions:
   contents: read
@@ -29,6 +29,9 @@ jobs:
     env:
       ISSUE_REPOSITORY: ${{ github.repository }}
       ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
+
+    # Only react to edits on the exercise tracking issue's comments.
+    if: ${{ github.event.issue.number == needs.find_exercise.outputs.issue-number }}
 
     steps:
       - name: Checkout
@@ -60,20 +63,23 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check for modification to global git config
-        id: check-for-global-config-change
+      - name: Check the setup checkbox was ticked
+        id: check-setup-confirmed
         continue-on-error: true
         uses: actions/github-script@v6
         env:
-          config_type: ${{ github.event.client_payload.config_type }}
+          comment_body: ${{ github.event.comment.body }}
         with:
           script: |
-            // Get configuration type that was modified
-            const config_type = process.env.config_type || "";
+            // The edited comment must be this step's instructions
+            // (identified by a hidden marker) and have a checked box.
+            const body = process.env.comment_body || "";
 
-            // Fail the workflow if the global config was not modified
-            if (config_type !== "global") {
-              throw new Error("Global git configuration was not modified.");
+            if (!body.includes("step-1-clone-check")) {
+              throw new Error("This is not the Step 1 confirmation comment.");
+            }
+            if (!/- \[[xX]\]/.test(body)) {
+              throw new Error("The confirmation checkbox is not checked yet.");
             }
 
       - name: Update comment - step results
@@ -87,8 +93,8 @@ jobs:
           vars: |
             step_number: 1
             results_table:
-              - description: "Set username and email in global Git config"
-                passed: ${{ steps.check-for-global-config-change.outcome == 'success' }}
+              - description: "Instalou o GitHub Desktop e clonou o repositório"
+                passed: ${{ steps.check-setup-confirmed.outcome == 'success' }}
 
       # END: Check practical exercise
 

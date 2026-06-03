@@ -6,12 +6,15 @@ on:
       - opened
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
   actions: write
   issues: write
 
 env:
   STEP_7_FILE: ".github/steps/7-step.md"
+  CONFLICT_BRANCH: "resolve-this-conflict"
+  CONFLICT_BASE: "conflict-base"
 
 concurrency:
   group: "step-6"
@@ -97,7 +100,7 @@ jobs:
           vars: |
             step_number: 6
             results_table:
-              - description: "Created a new issue with a title and description"
+              - description: "Criou uma nova issue com título e descrição"
                 passed: ${{ steps.check-for-descriptive-issue.outcome == 'success' }}
 
       # END: Check practical exercise
@@ -117,6 +120,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - name: Get response templates
         uses: actions/checkout@v4
@@ -124,6 +130,49 @@ jobs:
           repository: skills/exercise-toolkit
           path: exercise-toolkit
           ref: v0.7.3
+
+      # Prepare the next step: create a branch that intentionally conflicts
+      # with main and open a pull request for the learner to resolve.
+      - name: Seed a merge conflict for the next step
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          FILE="src/index.html"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Skip seeding if it was already done (avoid duplicates on re-runs)
+          if git ls-remote --exit-code --heads origin "$CONFLICT_BRANCH" >/dev/null 2>&1; then
+            echo "Conflict branch already exists, skipping seed."
+            exit 0
+          fi
+
+          git checkout main
+          git pull origin main
+
+          # Base branch with one version of the subtitle line.
+          # We use a dedicated base branch (not main) so this works even when
+          # the main branch is protected against direct pushes.
+          git checkout -b "$CONFLICT_BASE"
+          sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Clear the errors to keep the stack stable! 🧱</div>#' "$FILE"
+          git commit -am "Define o subtítulo na branch base"
+          git push origin "$CONFLICT_BASE"
+
+          # Conflict branch (from main) with a competing version of the SAME line.
+          git checkout main
+          git checkout -b "$CONFLICT_BRANCH"
+          sed -i 's#<div class="subtitle">.*</div>#<div class="subtitle">Match the bugs before they pile up! 🐛</div>#' "$FILE"
+          git commit -am "Propõe um novo texto de subtítulo"
+          git push origin "$CONFLICT_BRANCH"
+
+          # Open the pull request the learner will resolve in Step 7.
+          gh pr create \
+            --base "$CONFLICT_BASE" \
+            --head "$CONFLICT_BRANCH" \
+            --title "Resolva o conflito de merge do subtítulo" \
+            --body "Um colega alterou o subtítulo do jogo na branch base enquanto esta branch alterou a mesma linha. Resolva o conflito e mescle este pull request para concluir o passo."
 
       - name: Create comment - step finished
         uses: GrantBirki/comment@v2.1.1

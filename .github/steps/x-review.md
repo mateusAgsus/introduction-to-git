@@ -1,31 +1,16 @@
-## Review
+## Revisão
 
-_Congratulations, you've completed this exercise and learned the fundamental concepts of Git version control!_
+_Parabéns, você concluiu o fluxo de colaboração do dia a dia no GitHub, tudo com o GitHub Desktop!_
 
-<img src="https://octodex.github.com/images/jetpacktocat.png" alt="celebrate" width=200 align=right>
+<img src="https://octodex.github.com/images/jetpacktocat.png" alt="comemorar" width=200 align=right>
 
-In this exercise, you learned the fundamental concepts of Git version control and gained hands-on experience with essential Git operations. You now understand how to track changes, work with branches, and prepare for collaborative development.
+Neste exercício, você ganhou experiência prática com o fluxo de colaboração do GitHub sem nunca tocar na linha de comando. Agora você sabe como clonar um repositório, propor mudanças através de branches e pull requests, revisar e mesclar o trabalho, acompanhar tarefas com issues e resolver conflitos de merge.
 
-Here's a recap of your accomplishments:
+Aqui está um resumo das suas conquistas:
 
-- Configured Git and understood version control principles
-- Created repositories, staged changes, and made commits
-- Explored project history and compared file changes
-- Worked with branches for safe experimentation
-- Tracked work by creating issues
-- Resolved a merge conflict between branches
-- Learned collaboration concepts and Git hosting services
-
-### What's next?
-
-Want to keep going? Try one of these other exercises! :octocat:
-
-[![Skills](https://img.shields.io/badge/Skills-Review_Pull_Requests_→-text?style=flat&logo=github&labelColor=1f2328&color=1f883d)](https://github.com/skills/review-pull-requests)
-
-[![Skills](https://img.shields.io/badge/Skills-Resolve_Merge_Conflicts_→-text?style=flat&logo=github&labelColor=1f2328&color=1f883d)](https://github.com/skills/resolve-merge-conflicts)
-
-
-### Other Resources
-
-- [Git Handbook](https://guides.github.com/introduction/git-handbook/) - Additional Git concepts and commands
-- [Git Documentation](https://git-scm.com/doc) - Complete Git reference and tutorials
+- Instalou o GitHub Desktop e clonou um repositório
+- Criou uma branch, commitou uma alteração e a enviou
+- Abriu um pull request e o revisou
+- Mesclou um pull request na `main`
+- Acompanhou o trabalho criando uma issue
+- Resolveu um conflito de merge e mesclou o resultado

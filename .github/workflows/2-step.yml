@@ -1,17 +1,21 @@
 name: Step 2
 
 on:
-  repository_dispatch:
-    types:
-      - post-commit
+  push:
+    branches:
+      - add-project-files
 
 permissions:
-  contents: write
+  contents: read
   actions: write
   issues: write
 
 env:
   STEP_3_FILE: ".github/steps/3-step.md"
+
+concurrency:
+  group: "step-2"
+  cancel-in-progress: true
 
 jobs:
   find_exercise:
@@ -25,9 +29,6 @@ jobs:
     env:
       ISSUE_REPOSITORY: ${{ github.repository }}
       ISSUE_NUMBER: ${{ needs.find_exercise.outputs.issue-number }}
-
-    # Don't check unless at least 3 commits have been made
-    if: ${{ github.event.client_payload.branch_commit_count >= 3 }}
 
     steps:
       - name: Checkout
@@ -59,74 +60,19 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check for initial commit
-        id: check-for-initial-commit
+      - name: Check the branch has a commit
+        id: check-branch-commit
         continue-on-error: true
         uses: actions/github-script@v6
         env:
-          commit_messages: ${{ toJson(github.event.client_payload.branch_commit_messages) }}
-          keyword: "initial"
+          commits: ${{ toJson(github.event.commits) }}
         with:
           script: |
-            // Load commit messages and keyword
-            const commitMessages = JSON.parse(process.env.commit_messages || "[]");
-            let keyword = process.env.keyword || "";
-            keyword = keyword.toLowerCase();
-
-            // Check commit messages for keyword
-            for (const commit of commitMessages) {
-              const message = commit.message.toLowerCase();
-              if (message.includes(keyword)) {
-                return;
-              }
+            // The push to 'add-project-files' must include at least one commit.
+            const commits = JSON.parse(process.env.commits || "[]");
+            if (commits.length === 0) {
+              throw new Error("No commit was found on the 'add-project-files' branch.");
             }
-            throw new Error(`No commit message contains the keyword '${keyword}'`);
-
-      - name: Check for game docs commit
-        id: check-for-game-docs-commit
-        continue-on-error: true
-        uses: actions/github-script@v6
-        env:
-          commit_messages: ${{ toJson(github.event.client_payload.branch_commit_messages) }}
-          keyword: "game"
-        with:
-          script: |
-            // Load commit messages and keyword
-            const commitMessages = JSON.parse(process.env.commit_messages || "[]");
-            let keyword = process.env.keyword || "";
-            keyword = keyword.toLowerCase();
-
-            // Check commit messages for keyword
-            for (const commit of commitMessages) {
-              const message = commit.message.toLowerCase();
-              if (message.includes(keyword)) {
-                return;
-              }
-            }
-            throw new Error(`No commit message contains the keyword '${keyword}'`);
-
-      - name: Check for developer docs commit
-        id: check-for-developer-docs-commit
-        continue-on-error: true
-        uses: actions/github-script@v6
-        env:
-          commit_messages: ${{ toJson(github.event.client_payload.branch_commit_messages) }}
-          keyword: "developer"
-        with:
-          script: |
-            // Load commit messages and keyword
-            const commitMessages = JSON.parse(process.env.commit_messages || "[]");
-            let keyword = process.env.keyword || "";
-            keyword = keyword.toLowerCase();
-
-            // Check commit messages for keyword
-            for (const commit of commitMessages) {
-              const message = commit.message.toLowerCase();
-              if (message.includes(keyword)) {
-                return;
-              }
-            }
-            throw new Error(`No commit message contains the keyword '${keyword}'`);
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -139,12 +85,8 @@ jobs:
           vars: |
             step_number: 2
             results_table:
-              - description: "Created initial commit"
-                passed: ${{ steps.check-for-initial-commit.outcome == 'success' }}
-              - description: "Created game docs commit"
-                passed: ${{ steps.check-for-game-docs-commit.outcome == 'success' }}
-              - description: "Created developer docs commit"
-                passed: ${{ steps.check-for-game-docs-commit.outcome == 'success' }}
+              - description: "Criou a branch 'add-project-files' com um commit"
+                passed: ${{ steps.check-branch-commit.outcome == 'success' }}
 
       # END: Check practical exercise
 

@@ -1,92 +1,74 @@
-## Step 6: Tracking Work with Issues
+## Passo 6: Acompanhando o trabalho com Issues
 
-Our game is coming along nicely! But as a project grows, you need a way to keep track of bugs, ideas, and tasks, so nothing gets forgotten. This is especially important when collaborating with others.
+Nosso projeto está indo bem! Mas, conforme um projeto cresce, você precisa de uma forma de acompanhar bugs, ideias e tarefas, para que nada seja esquecido. Isso é especialmente importante ao colaborar com outras pessoas.
 
-This is where **issues** come in. 🗒️
+É aqui que entram as **issues**. 🗒️
 
-### 📖 Theory: What are Issues?
+### 📖 Teoria: O que são Issues?
 
-An **issue** is a way to track work directly inside your repository on GitHub. Think of it as a to-do item, bug report, or discussion thread tied to your project.
+Uma **issue** é uma forma de acompanhar o trabalho diretamente dentro do seu repositório no GitHub. Pense nela como um item de tarefa, um relato de bug ou um tópico de discussão ligado ao seu projeto.
 
-Issues are great for:
+Issues são ótimas para:
 
-- **Reporting bugs**: Describe something that isn't working as expected.
-- **Planning features**: Capture an idea before you start coding.
-- **Organizing work**: Break a big goal into smaller, trackable tasks.
-- **Collaborating**: Discuss the work with teammates in one place.
+- **Relatar bugs**: Descrever algo que não está funcionando como esperado.
+- **Planejar funcionalidades**: Registrar uma ideia antes de começar a desenvolver.
+- **Organizar o trabalho**: Quebrar um objetivo grande em tarefas menores e rastreáveis.
+- **Colaborar**: Discutir o trabalho com a equipe em um só lugar.
 
-To keep things organized, an issue can include:
+Para manter tudo organizado, uma issue pode incluir:
 
-- **Title**: A short, clear summary of the work.
-- **Description**: The details, context, and steps to reproduce (for bugs).
-- **Labels**: Tags like `bug`, `enhancement`, or `documentation`.
-- **Assignees**: The people responsible for the work.
-- **Milestones**: A group of issues working toward a larger goal.
+- **Título**: Um resumo curto e claro do trabalho.
+- **Descrição**: Os detalhes, o contexto e os passos para reproduzir (no caso de bugs).
+- **Labels**: Etiquetas como `bug`, `enhancement` ou `documentation`.
+- **Assignees**: As pessoas responsáveis pelo trabalho.
+- **Milestones**: Um grupo de issues trabalhando rumo a um objetivo maior.
 
 > [!TIP]
-> A good issue title is specific. "Bug" is hard to act on, but "High score resets when the page is refreshed" tells everyone exactly what to look at.
+> Um bom título de issue é específico. "Bug" é difícil de agir, mas "O recorde é perdido ao recarregar a página" diz a todos exatamente o que olhar.
 
-### ⌨️ Activity 1: Create an issue (using the web browser)
+### ⌨️ Atividade: Crie uma issue
 
-While building the game, you noticed the high score doesn't always behave as expected. Let's track that with an issue!
+Enquanto desenvolvia o jogo, você notou que o recorde nem sempre se comporta como esperado. Vamos registrar isso com uma issue!
 
 > [!IMPORTANT]
-> Create this issue on **your copy** of the exercise repository, not on the tracking issue Mona is using for this exercise.
+> Crie esta issue na **sua cópia** do repositório do exercício, e não na issue de acompanhamento que a Mona usa neste exercício.
 
-1. In a new browser tab, open the **Issues** tab of your repository.
+1. Em uma nova aba do navegador, abra a aba **Issues** do seu repositório.
 
-   [Open the Issues tab →](../../issues)
+   [Abrir a aba Issues →](../../issues)
 
-1. Click the green **New issue** button.
+2. Clique no botão verde **New issue**.
 
-1. Give your issue a clear, specific **title**.
+3. Dê um **título** claro e específico à sua issue.
 
    ```txt
-   Bug: high score is lost after refreshing the page
+   Bug: o recorde é perdido ao recarregar a página
    ```
 
-1. Add a **description** with some helpful details.
+4. Adicione uma **descrição** com alguns detalhes úteis.
 
    ```md
-   ## What happens
-   The high score resets to 0 every time the page is reloaded.
+   ## O que acontece
+   O recorde volta a 0 toda vez que a página é recarregada.
 
-   ## Expected behavior
-   The high score should persist between sessions.
+   ## Comportamento esperado
+   O recorde deveria persistir entre as sessões.
 
-   ## Notes
-   Likely related to how we read and write the value in localStorage.
+   ## Observações
+   Provavelmente relacionado a como lemos e gravamos o valor no localStorage.
    ```
 
-1. Click **Submit new issue** to create it.
+5. Clique em **Submit new issue** para criá-la.
 
-1. With your issue created, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next steps.
-
-### ⌨️ Activity 2: Create an issue (using the CLI)
-
-You can also create issues without leaving your editor, using the [GitHub CLI](https://cli.github.com/) (`gh`) in the integrated terminal.
-
-1. In the terminal, create an issue with a single command.
-
-   ```bash
-   gh issue create --title "Add a restart button" --body "Players should be able to restart the game without reloading the page."
-   ```
-
-   > 🪧 **Note**: The first time you use `gh`, it may ask you to authenticate. Follow the on-screen prompts.
-
-1. List the issues in your repository to confirm it was created.
-
-   ```bash
-   gh issue list
-   ```
+6. Com sua issue criada, a Mona já estará verificando seu trabalho. Dê um instante a ela e fique de olho nos comentários. Você verá a resposta com o progresso e os próximos passos.
 
 > [!TIP]
-> You can close an issue from the CLI too, once the work is done: `gh issue close <number>`.
+> Você também pode criar issues a partir do GitHub Desktop em **Repository → View on GitHub**, que abre o repositório no seu navegador.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Com dificuldades? 🤷</summary><br/>
 
-- Make sure you are creating the issue on **your** copy of the repository, not the original `skills/introduction-to-git`.
-- An issue needs both a **title** and a **description** for Mona to mark this step complete.
+- Confirme que você está criando a issue na **sua** cópia do repositório.
+- Uma issue precisa de **título** e **descrição** para a Mona marcar este passo como concluído.
 
 </details>

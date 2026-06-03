@@ -1,159 +1,62 @@
-## Step 2: Creating Your First Repository
+## Passo 2: Adicione os arquivos do projeto em uma branch
 
-Now that we are familiar with the sample project and informed Git who we are, let's get our game into version control!
+Agora que o repositório está no seu computador, vamos fazer nossa primeira alteração. Em vez de editar a `main` diretamente, vamos trabalhar em uma **branch**, a forma segura e padrão de propor mudanças.
 
-### 📖 Theory: The Git Workflow
+### 📖 Teoria: O que é uma branch?
 
-The Git workflow involves three main areas:
+Uma **branch** é uma linha de trabalho independente. Ela permite adicionar ou alterar arquivos sem afetar a branch `main` (a confiável) até que seu trabalho esteja pronto e revisado.
 
-- **Working Directory**: Your project files where you are making changes.
-- **Staging Area (Index)**: A preparation area for grouping changes you want to save to history.
-- **Repository**: The permanent records of your project's development history.
+O fluxo típico é:
 
-```mermaid
-graph LR
-  A[Working Directory] -->|git add| B[Staging Area]
-  B -->|git commit| C[Repository]
-  C -->|git checkout| A
-```
+1. Criar uma branch.
+2. Fazer e **commitar** suas alterações nela.
+3. **Enviar** (push) a branch para o GitHub.
+4. Abrir um **pull request** para mesclar na `main` (nos próximos passos!).
 
-### What are the important Git commands?
+### ⌨️ Atividade: Crie uma branch, commite uma alteração e envie
 
-Git has many operations, but there are a few you will use the most for local projects.
+> [!IMPORTANT]
+> Use exatamente o nome de branch abaixo, para que a Mona consiga acompanhar seu progresso.
 
-- `git init` - Start a new repository to enable versioning.
-- `git add` - Group related changes together in the staging area, in preparation to "commit" them to history.
-- `git commit` - Save or "commit" the changes in the staging area to the project's history.
-  - commit message - A short description of the changes to help keep the history organized.
-- `git status` - View the current state of your working directory and staging area.
-- `git checkout` - Change your working directory to a different version from the repository history.
+1. No GitHub Desktop, clique em **Current Branch** no topo e depois em **New Branch**.
 
-> [!TIP]
-> Don't undervalue the commit message! A clear, concise, descriptive, and non-generic message will make your project history much easier to understand (and help find those future bugs)!
-
-### ⌨️ Activity 1: Initialize a project repository (using the CLI)
-
-Let's add version control to our game and commit the current version.
-
-1. In the terminal, navigate to the project directory.
-
-   ```bash
-   cd /workspaces/stack-overflown
-   ```
-
-1. Initialize a new Git repository.
-
-   ```bash
-   git init
-   ```
-
-1. Check repository status. Notice it says "No commits yet" and the tip to use `git add`.
-
-   ```bash
-   git status
-   ```
-
-   <img width="500px" src="https://github.com/user-attachments/assets/b15dbbde-057c-4508-a9c5-73681cc1ad19"/>
-
-1. Promote the game files to the staging area. This will create a locked copy, preparing them for committing to the repository history.
-
-   ```bash
-   git add src/index.html
-   git add src/index.js
-   git add src/patterns.js
-   git add src/style.css
-   ```
-
-   or
-
-   ```bash
-   git add src/*
-   ```
-
-1. Check the repository status again. Notice that each file is identified as `new file`.
-
-   ```bash
-   git status
-   ```
-
-   <img width="500px" src="https://github.com/user-attachments/assets/77780813-7dbc-4aaa-8df8-d11938674b1f"/>
-
-1. Commit the changes to the repository history. Our project history is now started! :octocat:
-
-   ```bash
-   git commit -m "Initial commit"
-   ```
-
-   <img width="500px" src="https://github.com/user-attachments/assets/da92ec36-8a89-4e8b-9592-c55e6f09b7af"/>
-
-1. Check repository status. Notice the "working tree clean" which means our current copy perfectly matches the history.
-
-   ```bash
-   git status
-   ```
-
-   <img width="500px" src="https://github.com/user-attachments/assets/d5339839-6185-45b6-8535-d268840d4ccc"/>
-
-### ⌨️ Activity 2: Work on a file (using VS Code)
-
-Let's also try adding files with our code editor, in this case the documentation for our game.
-
-1. In the file explorer, click the **New File...** icon to start a README file with the following name. Make sure it is inside the `./stack-overflown/` folder.
+2. Nomeie a branch exatamente assim:
 
    ```txt
-   README.md
+   add-project-files
    ```
 
-   <img width="350px" src="https://github.com/user-attachments/assets/df391b20-6df5-4195-a03a-55975da30b46"/>
+   Confirme que ela é baseada em `main` e clique em **Create Branch**.
 
-1. Open the file and insert the following content.
+3. Adicione um arquivo de projeto. Clique em **Open the repository in your external editor** (ou abra a pasta do repositório) e crie um novo arquivo chamado `PROJECT.md` com algum conteúdo, por exemplo:
 
    ```md
-   # Stack Overflown
+   # Stack Overflow
 
-   Organize the falling blocks into the current debug pattern before the stack overflows! ⏳
+   Cópia do projeto do jogo Stack Overflow da nossa equipe.
+
+   - Mantido por: <seu nome>
    ```
 
-1. In the left navigation, select the **Source Control** tab. Notice the `README.md` file is listed under the **Changes** area.
+   Salve o arquivo.
 
-   <img width="350px" src="https://github.com/user-attachments/assets/b31a12ac-ef3d-454b-8c94-7146abab0f99"/>
-
-1. Promote the file to the staging staging area by hovering over file and selecting the plus sign `+` button.
-
-   <img width="350px" src="https://github.com/user-attachments/assets/5c2a7e4c-244f-406c-98d3-6e1934d754e7"/>
-
-1. Enter a commit message and press the **Commit** button.
+1. De volta ao GitHub Desktop, você verá o `PROJECT.md` listado em **Changes**. Escreva um **resumo** (mensagem de commit) no canto inferior esquerdo:
 
    ```txt
-   Start game documentation
+   Add project description file
    ```
 
-   <img width="350px" src="https://github.com/user-attachments/assets/fc80aa05-0f1f-4c68-8e8a-95cd9d41321b"/>
+   Em seguida, clique em **Commit to add-project-files**.
 
-1. For a second commit, also add the following content to `README.md`.
+1. Clique em **Publish branch** (canto superior direito) para enviar sua branch e o commit para o GitHub.
 
-   ```md
-   ## How to Develop
-
-   - `index.html` - the game container for playing
-   - `index.js` - the primary game logic
-   - `patterns.js` - the error patterns to match during gameplay
-   - `style.css` - the game formatting and styling
-   ```
-
-1. Promote the change to staging and commit with the below message.
-
-   ```txt
-   Start developer docs
-   ```
-
-   <img width="350px" src="https://github.com/user-attachments/assets/c2301467-c3e7-43fa-95d8-bdaf64ded337"/>
-
-1. With your new commits added to the repository, Mona should already be busy checking your work. Give her a moment and keep watch in the comments. You will see her respond with progress info and the next steps.
+1. Com sua branch enviada, a Mona vai verificar seu trabalho. Dê um instante a ela e fique de olho nos comentários. 👀
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Com dificuldades? 🤷</summary><br/>
 
-- If `git status` shows the wrong files, you can remove them from staging with `git restore --staged <filename>`
+- O nome da branch precisa ser exatamente `add-project-files`.
+- Confirme que você **commitou** a alteração antes de publicar; é o commit que a Mona procura.
+- Se esqueceu de publicar, clique em **Publish branch** (ou **Push origin**) na barra superior.
 
 </details>

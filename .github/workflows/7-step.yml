@@ -1,12 +1,15 @@
 name: Step 7 # Resolving a Merge Conflict
 
 on:
-  repository_dispatch:
+  pull_request:
+    branches:
+      - conflict-base
     types:
-      - post-commit
+      - closed
 
 permissions:
   contents: read
+  pull-requests: read
   actions: write
   issues: write
 
@@ -21,6 +24,8 @@ jobs:
   find_exercise:
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.0
+    # Only react when the seeded conflict pull request is merged.
+    if: ${{ github.event.pull_request.merged == true && github.head_ref == 'resolve-this-conflict' }}
 
   check_step_work:
     name: Check step work
@@ -60,28 +65,17 @@ jobs:
 
       # START: Check practical exercise
 
-      - name: Check for merge conflict resolution commit
-        id: check-for-conflict-resolution
+      - name: Check the conflict pull request was merged
+        id: check-conflict-merged
         continue-on-error: true
         uses: actions/github-script@v6
         env:
-          commit_messages: ${{ toJson(github.event.client_payload.branch_commit_messages) }}
-          keyword: "conflict"
+          merged: ${{ github.event.pull_request.merged }}
         with:
           script: |
-            // Load commit messages and keyword
-            const commitMessages = JSON.parse(process.env.commit_messages || "[]");
-            let keyword = process.env.keyword || "";
-            keyword = keyword.toLowerCase();
-
-            // Check commit messages for keyword
-            for (const commit of commitMessages) {
-              const message = commit.message.toLowerCase();
-              if (message.includes(keyword)) {
-                return;
-              }
+            if (process.env.merged !== "true") {
+              throw new Error("The conflict pull request was closed without merging.");
             }
-            throw new Error(`No commit message contains the keyword '${keyword}'`);
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -94,8 +88,8 @@ jobs:
           vars: |
             step_number: 7
             results_table:
-              - description: "Resolved a merge conflict and committed the result"
-                passed: ${{ steps.check-for-conflict-resolution.outcome == 'success' }}
+              - description: "Resolveu o conflito de merge e mesclou o pull request"
+                passed: ${{ steps.check-conflict-merged.outcome == 'success' }}
 
       # END: Check practical exercise
 

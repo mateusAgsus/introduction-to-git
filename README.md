@@ -1,54 +1,55 @@
-# Introduction to Git
+# Colaborar no GitHub com o GitHub Desktop
 
-_Use Git version control to work on a game using command line (CLI) and VS Code._
+_Aprenda o fluxo de colaboração do dia a dia no GitHub usando um aplicativo visual e amigável — sem precisar da linha de comando._
 
-## Welcome
+## Boas-vindas
 
-- **Who is this for**: Beginner developers who want to learn Git version control
-- **What you'll learn**: Fundamental Git concepts including commits, branches, history, issues, merge conflicts, and collaboration basics
-- **What you'll build**: You'll create a Git repository, add a sample code, then develop some simple features.
-- **Prerequisites**:
+- **Para quem é**: Qualquer pessoa que precise colaborar no GitHub sem usar a linha de comando, incluindo quem não é desenvolvedor(a).
+- **O que você vai aprender**: O fluxo do dia a dia no GitHub — clonar, branches, commits, pull requests, revisões, issues e resolução de conflitos de merge — tudo pelo GitHub Desktop e pelo navegador.
+- **O que você vai construir**: Você vai levar um projeto de jogo de exemplo por um ciclo completo de colaboração.
+- **Pré-requisitos**:
 
-  - No prior Git or version control experience required.
-  - Recommended: Basic familiarity with Command Line Interfaces (CLI)
-  - Recommended: Basic familiarity with Visual Studio Code.
+  - Não é necessária experiência prévia com Git ou GitHub.
+  - Você vai instalar o [GitHub Desktop](https://desktop.github.com/) durante o exercício.
 
-- **How long**: This exercise takes about 60 minutes to complete.
+- **Duração**: Este exercício leva cerca de 45 minutos para ser concluído.
 
-In this exercise, you will:
+Neste exercício, você vai:
 
-1. Understand what version control is and why developers use it.
-1. Configure your Git identity.
-1. Create your first repository and make commits.
-1. View project history and compare file changes.
-1. Work with branches to experiment safely.
-1. Track work by creating issues.
-1. Resolve a merge conflict between branches.
-1. Learn about Git collaboration concepts.
+1. Instalar o GitHub Desktop e clonar um repositório.
+2. Criar uma branch, commitar uma alteração e enviá-la.
+3. Abrir um pull request.
+4. Revisar um pull request.
+5. Mesclar um pull request na `main`.
+6. Acompanhar o trabalho criando uma issue.
+7. Resolver um conflito de merge.
 
-### How to start this exercise
+### Como iniciar este exercício
 
-Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
+Basta copiar o exercício para a sua conta, dar à sua Octocat favorita (a Mona) **cerca de 20 segundos** para preparar a primeira lição e então **atualizar a página**.
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=introduction-to-git&owner=%40me&name=skills-introduction-to-git&description=Exercise:+Introduction+to+Git&visibility=public)
+[![](https://img.shields.io/badge/Copiar%20Exerc%C3%ADcio-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=%40me&template_name=introduction-to-git&owner=%40me&name=colaborar-com-github-desktop&description=Exerc%C3%ADcio:+Colaborar+no+GitHub+com+o+GitHub+Desktop&visibility=public)
+
+> [!NOTE]
+> Atualize o link **Copiar Exercício** acima para apontar para a cópia deste template da sua organização assim que você publicá-lo.
+
+Assim que sua cópia estiver pronta, o primeiro passo vai te guiar na instalação do **GitHub Desktop** e na clonagem do repositório. Todo o resto acontece no GitHub Desktop e no seu navegador.
 
 <details>
-<summary>Having trouble? 🤷</summary><br/>
+<summary>Com dificuldades? 🤷</summary><br/>
 
-When copying the exercise, we recommend the following settings:
+Ao copiar o exercício, recomendamos as seguintes configurações:
 
-- For owner, choose your personal account or an organization to host the repository.
+- Como dono (owner), escolha sua conta pessoal ou uma organização para hospedar o repositório.
 
-- We recommend creating a public repository, since private repositories will use Actions minutes.
+- Recomendamos criar um repositório público, já que repositórios privados consomem minutos de Actions.
 
-If the exercise isn't ready in 20 seconds, please check the [Actions](../../actions) tab.
+Se o exercício não estiver pronto em 20 segundos, verifique a aba [Actions](../../actions).
 
-- Check to see if a job is running. Sometimes it simply takes a bit longer.
+- Veja se há um job em execução. Às vezes simplesmente demora um pouco mais.
 
-- If the page shows a failed job, please submit an issue. Nice, you found a bug! 🐛
+- Se a página mostrar um job com falha, por favor abra uma issue. Boa, você encontrou um bug! 🐛
 
 </details>
 
 ---
-
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)

@@ -1,33 +1,15 @@
-## Step 6: Introduction to Collaboration
+## Passo 8: Encerramento
 
-Nice work! You've mastered local Git operations and our game is now safe to experiment developing new features! 🎉
+Excelente trabalho! 🎉 Você concluiu todo o fluxo de colaboração do dia a dia no GitHub, usando o GitHub Desktop e o navegador, sem encostar na linha de comando.
 
-But.. the really fun development happens in teams, not alone. That is another exercise, but let's start exploring the topic.
+### 📖 Recapitulando: O ciclo de colaboração
 
-### 📖 Theory: Git Collaboration Concepts
+Este é o fluxo que você acabou de praticar, o mesmo que as equipes usam todos os dias:
 
-Since branches provide powerful parallelism to work on different features independently, a natural extension is to enable multiple people to work in parallel.
+1. **Clonar** o repositório para o seu computador.
+2. Criar uma **branch** e **commitar** suas alterações.
+3. **Enviar** (push) a branch e abrir um **pull request**.
+4. **Revisar** as alterações e fazer o **merge** do pull request.
+5. Usar **issues** para acompanhar tarefas e bugs.
+6. **Resolver conflitos** quando duas alterações tocam a mesma linha.
 
-At the beginning, we mentioned Git is a "distributed" version control system, this means it can share changes with other copies of the same repository!
-
-### What does collaboration look like?
-
-Here is a typical workflow:
-
-1. Copy a repository to your local machine (called **cloning**).
-1. Create branches and develop new features.
-1. Publish your changes to a remote repository, somewhere others can also access (called **pushing**).
-1. Other developers decide if they like your changes. If so, they merge them into their version of the project (called **pulling**).
-1. Additionally, you might proactively ask another developer to integrate your changes into their copy (called a **pull request**).
-
-### ⌨️ Activity: Quick Review
-
-Answer one quick question for Mona, and she will share the final review! 🎉
-
-**What is your favorite feature of Git?**
-
-- [ ] It's free and open source. 😍
-- [ ] I don't need internet to use it. 🛜
-- [ ] I can use it with any operating system. 🍎🪟🐧
-- [ ] The detailed history (if I write good messages). ✨
-- [ ] That I might never write `final_really.zip` ever again! 😎
