@@ -13,3 +13,11 @@ Este é o fluxo que você acabou de praticar, o mesmo que as equipes usam todos 
 5. Usar **issues** para acompanhar tarefas e bugs.
 6. **Resolver conflitos** quando duas alterações tocam a mesma linha.
 
+### Última tarefa
+
+Marque a caixa abaixo para concluir o exercício:
+
+- [ ] Concluí o exercício e compreendi o fluxo básico de colaboração utilizando GitHub e GitHub Desktop.
+
+Após salvar a alteração no comentário, a revisão final será iniciada automaticamente.
+
