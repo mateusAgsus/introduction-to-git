@@ -21,7 +21,7 @@ Uma **revisão** (review) é um retorno estruturado sobre um pull request. Na ab
 
 3. (Opcional) Passe o mouse sobre uma linha e clique no **+** azul para deixar um comentário na linha.
 
-4. Clique no botão verde **Review changes** (canto superior direito).
+4. Clique no botão verde **Submit review** (canto superior direito).
 
 5. Escreva um resumo curto, por exemplo:
 
