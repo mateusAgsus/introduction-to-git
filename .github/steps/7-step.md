@@ -22,7 +22,7 @@ Para resolver, você escolhe o conteúdo final (manter um lado, o outro ou combi
 
 1. Abra o formulário de novo pull request já preenchido pelo link abaixo (base `conflict-base`, comparando com `resolve-this-conflict`):
 
-   [Abrir o pull request →](../../compare/conflict-base...resolve-this-conflict?expand=1)
+   [Abrir o pull request →](../../colaborar-com-github-desktop/compare/conflict-base...resolve-this-conflict?expand=1)
 
 1. Dê um título, por exemplo `Resolver conflito do subtítulo`, e clique em **Create pull request**.
 
