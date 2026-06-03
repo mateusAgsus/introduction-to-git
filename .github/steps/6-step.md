@@ -24,7 +24,7 @@ Para manter tudo organizado, uma issue pode incluir:
 - **Milestones**: Um grupo de issues trabalhando rumo a um objetivo maior.
 
 > [!TIP]
-> Um bom título de issue é específico. "Bug" é difícil de agir, mas "O recorde é perdido ao recarregar a página" diz a todos exatamente o que olhar.
+> Um bom título de issue é específico. "Bug" é difícil de agir, mas "Erro no login, campo nome não funciona" diz a todos exatamente o que olhar.
 
 ### ⌨️ Atividade: Crie uma issue
 
