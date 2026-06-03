@@ -1,6 +1,6 @@
 # Colaborar no GitHub com o GitHub Desktop
 
-_Aprenda o fluxo de colaboração do dia a dia no GitHub usando um aplicativo visual e amigável — sem precisar da linha de comando._
+_Aprenda o fluxo de colaboração do dia a dia no GitHub usando um aplicativo visual e amigável — o Github Desktop._
 
 ## Boas-vindas
 
