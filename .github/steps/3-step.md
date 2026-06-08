@@ -22,15 +22,17 @@ Um **pull request** é um pedido para mesclar as alterações de uma branch em o
 
    - **base:** `main`  ⬅️  **compare:** `add-project-files`
 
-3. Dê um **título** claro ao pull request:
+3. Dê um **título** claro ao pull request, exemplo:
 
    ```txt
    Add project description file
    ```
 
-4. Adicione uma breve **descrição** do que você alterou e clique em **Create pull request**.
+4. Perceba que será apresentado um modelo de Pull Request no campo de descrição, esse modelo será utilizado por nossa organização para ajudar na rastreabilidade de mudanças, fique a vontade para alterar o modelo conforme a necessidade, veja como ficou o modelo clicando em preview.
 
-5. Com seu pull request aberto, a Mona vai verificar seu trabalho e compartilhar o próximo passo. 🔎
+5. Adicione uma breve **descrição** do que você alterou e clique em **Create pull request**.
+
+6. Com seu pull request aberto, a Mona vai verificar seu trabalho e compartilhar o próximo passo. 🔎
 
 <details>
 <summary>Com dificuldades? 🤷</summary><br/>

@@ -28,27 +28,33 @@ O fluxo típico é:
 
    Confirme que ela é baseada em `main` e clique em **Create Branch**.
 
-3. Adicione um arquivo de projeto. Clique em **Open the repository in your external editor** (ou abra a pasta do repositório) e crie um novo arquivo chamado `PROJECT.md` com algum conteúdo, por exemplo:
+3. Adicione um arquivo ao projeto. Clique em **Open the repository in your external editor** (ou abra a pasta do repositório) e crie um novo arquivo no seu editor chamado por exemplo `PROJECT.md` com algum conteúdo, exemplo:
 
    ```md
-   # Stack Overflow
+   # Capacitação do GitHub
 
-   Cópia do projeto do jogo Stack Overflow da nossa equipe.
+   Primeiro arquivo adicionado no projeto.
 
    - Mantido por: <seu nome>
    ```
 
    Salve o arquivo.
 
-1. De volta ao GitHub Desktop, você verá o `PROJECT.md` listado em **Changes**. Escreva um **resumo** (mensagem de commit) no canto inferior esquerdo:
+1. De volta ao GitHub Desktop, você verá o `PROJECT.md` listado em **Changes** (caso não tenha visto, pode ser um sinal que você não criou o arquivo ou não salvou as alterações). Escreva um **resumo** (mensagem de commit) no canto inferior esquerdo:
 
    ```txt
    Add project description file
    ```
+
+1. ![Sinalização do campo a ser preenchido no github desktop](../../src\images\commit-desktop.png)
+
 > [!NOTE]
 > Não se procupe com a nossa política de commits por agora, vamos ter tempo para nos ambientarmos com isso depois.
    
    Em seguida, clique em **Commit to add-project-files**.
+
+> [!NOTE]
+> Perceba que depois que você fizer um commit o github desktop apresentará um botão chamado **undo** na parte inferior da barra lateral esquerda. Ele permite desfazer o último commit de forma simples antes de enviá-lo (push) para o servidor. Acione caso seja necessário desfazer/revisar/adicionar alterações.
 
 1. Clique em **Publish branch** (canto superior direito) para enviar sua branch e o commit para o GitHub.
 

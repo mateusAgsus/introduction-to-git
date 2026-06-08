@@ -37,7 +37,7 @@ Enquanto desenvolvia o projeto, você notou que a funcionalidade implementada ne
 
    [Abrir a aba Issues →](../../colaborar-com-github-desktop/issues)
 
-2. Clique no botão verde **New issue**.
+2. Clique no botão verde **New issue**, note que temos alguns templates para issues, utilize a que for adequada ao contexto, caso nenhuma seja clique em blank issue para criar uma issue sem um template específico.
 
 3. Dê um **título** claro e específico à sua issue.
 
@@ -63,7 +63,7 @@ Enquanto desenvolvia o projeto, você notou que a funcionalidade implementada ne
 6. Com sua issue criada, a Mona já estará verificando seu trabalho. Dê um instante a ela e fique de olho nos comentários. Você verá a resposta com o progresso e os próximos passos.
 
 > [!TIP]
-> Você também pode criar issues a partir do GitHub Desktop em **Repository → View on GitHub**, que abre o repositório no seu navegador.
+> Você também pode criar issues a partir do GitHub Desktop em **Repository → Create issue on GitHub**, que abre o repositório no seu navegador.
 
 <details>
 <summary>Com dificuldades? 🤷</summary><br/>

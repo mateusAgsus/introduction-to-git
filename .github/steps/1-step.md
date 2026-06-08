@@ -37,9 +37,13 @@ Na nossa organização, os repositórios já são criados para você automaticam
 
 Não conseguimos detectar um clone automaticamente (ele acontece inteiramente no seu computador), então confirme você mesmo:
 
-1. Encontre o comentário **acima** que contém as instruções deste passo.
+1. Depois de ter seguido todos os passos acima marque a checkbox abaixo.
+
+Ou então, 
+
+1. Vá para o início desse comentário que contém as instruções deste passo.
 2. Clique no menu **`···`** no canto superior direito desse comentário e escolha **Edit**.
-3. Marque a caixa trocando `[ ]` por `[x]` e clique em **Update comment**.
+3. Marque a caixa trocando `[ ]` por `[x]` e clique em **Update comment**. Obs: Não deixe espaços na caixa, a edição deve ser exatamente assim `[x]`.
 
 - [ ] Instalei o GitHub Desktop e clonei este repositório.
 

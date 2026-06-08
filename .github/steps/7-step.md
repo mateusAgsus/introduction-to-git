@@ -1,8 +1,8 @@
 ## Passo 7: Resolva um Conflito de Merge
 
-Às vezes duas pessoas alteram a **mesma linha** de formas diferentes. O Git não consegue decidir qual versão está correta, então ele pede que um humano escolha. Isso é um **conflito de merge**, e faz parte normal da colaboração. 😌
+Às vezes duas pessoas alteram a **mesma linha** de formas diferentes. O Git não consegue decidir qual versão está correta, então ele pede que um humano escolha. Isso é um **conflito de merge**, e faz parte da colaboração. 😌
 
-Para você praticar de forma realista, **criamos a branch `resolve-this-conflict`** que altera o subtítulo do jogo. Enquanto isso, um colega alterou **a mesma linha** na `main`. Quando você abrir um pull request dessa branch para a `main`, o GitHub vai apontar o conflito para você resolver.
+Para você praticar de forma realista, **criamos a branch `resolve-this-conflict`** que altera o subtítulo do projeto. Enquanto isso, um colega alterou **a mesma linha** na `main`. Quando você abrir um pull request dessa branch para a `main`, o GitHub vai apontar o conflito para você resolver.
 
 ### 📖 Teoria: Anatomia de um conflito
 
